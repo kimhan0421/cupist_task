@@ -1,7 +1,23 @@
 import styled from '@emotion/styled';
 
+import icSetting from '../../images/ic-setting.svg';
+
 const Slef = styled.div`
   padding-top: 16px;
+`;
+
+const Block = styled.div`
+  display: flex;
+  width: 100vw;
+  max-width: 375px;
+  justify-content: space-between;
+`;
+
+const IconSetting = styled.div`
+  background: url(${icSetting}) 0 center no-repeat;
+  padding: 16px;
+  width: 22px;
+  height: 17px;
 `;
 
 const TabFlex = styled.div`
@@ -40,8 +56,8 @@ const SlefHr = styled.hr`
 
 function Header() {
   return (
-    <>
-      <Slef>
+    <Slef>
+      <Block>
         <TabFlex>
           <GlamTab>
             <GlamTabTitle />
@@ -49,9 +65,10 @@ function Header() {
           <TabTitle>라이브</TabTitle>
           <TabTitle>근처</TabTitle>
         </TabFlex>
-        <SlefHr />
-      </Slef>
-    </>
+        <IconSetting />
+      </Block>
+      <SlefHr />
+    </Slef>
   );
 }
 
