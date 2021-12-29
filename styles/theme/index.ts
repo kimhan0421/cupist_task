@@ -7,6 +7,7 @@ const theme = {
     cyanBlue: '#609AF8',
     black: '#000000',
     white: '#FFFFFF',
+    steelBlue: '#B4C5EE',
   },
 };
 

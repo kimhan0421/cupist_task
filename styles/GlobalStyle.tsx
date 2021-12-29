@@ -1,4 +1,5 @@
 import { css, Global } from '@emotion/react';
+
 import importFonts from '../lib/importFonts';
 
 function GlobalStyles() {
@@ -12,6 +13,7 @@ function GlobalStyles() {
           max-width: 375px;
           padding: 0;
           margin: 0 auto;
+          letter-spacing: -0.09em;
         }
 
         a {
