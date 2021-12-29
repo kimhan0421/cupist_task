@@ -62,8 +62,8 @@ function Header() {
           <GlamTab>
             <GlamTabTitle />
           </GlamTab>
-          <TabTitle>라이브</TabTitle>
           <TabTitle>근처</TabTitle>
+          <TabTitle>피드</TabTitle>
         </TabFlex>
         <IconSetting />
       </Block>
