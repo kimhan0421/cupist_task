@@ -1,10 +1,9 @@
-import styled from '@emotion/styled';
 import type { NextPage } from 'next';
 
-const Title = styled.div`
-  font-weight: 800;
-`;
+import Header from '../components/common/Header';
 
-const Home: NextPage = () => <Title>glam</Title>;
+
+
+const Home: NextPage = () => <><Header /></>;
 
 export default Home;
