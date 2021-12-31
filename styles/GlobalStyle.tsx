@@ -13,7 +13,6 @@ function GlobalStyles() {
           max-width: 375px;
           padding: 0;
           margin: 0 auto;
-          letter-spacing: -0.09em;
         }
 
         a {
@@ -33,6 +32,11 @@ function GlobalStyles() {
 
         * {
           box-sizing: border-box;
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+          ::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera*/
+          }
         }
       `}
     />

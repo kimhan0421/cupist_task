@@ -1,90 +1,106 @@
 import styled from '@emotion/styled';
+import { useState } from 'react';
 
-import icBoosting from '../../images/ic-boosting.svg';
+import RecommendationData from './data/RecommendationData';
 
 const Block = styled.div`
   border-radius: 8px;
   border: 1px solid ${props => props.theme.colors.lightGray};
+  padding: 18px 12px;
 `;
 
-const TopImg = styled.div`
-  background: url('/images/ic-recom.png') center no-repeat;
-  background-size: 100%;
-  width: 100%;
-  height: 400px;
-  border-radius: 8px 8px 0px 0px;
-`;
-
-const CommentBlock = styled.div`
-  padding: 16px;
-`;
-
-const CommentTitle = styled.div`
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 33px;
-`;
-
-const CommentSub = styled.div`
-  padding-top: 8px;
+const TitleDiv = styled.div`
   font-size: 16px;
   line-height: 22px;
-  color: ${props => props.theme.colors.charcoalGrey};
+  font-weight: 600;
 `;
 
-const BoostingButton = styled.button`
+const SubBlock = styled.div`
+  margin-top: 26px;
+  margin-left: 14px;
+`;
+
+const SubWapper = styled.div`
   display: flex;
+  width: 100vw;
+  max-width: 293px;
+  justify-content: space-between;
+  padding-top: 32px;
+  :first-of-type {
+    padding-top: 26px;
+  }
+`;
+
+const SubFlex = styled.div`
+  display: flex;
+`;
+
+const IconToday = styled.img`
+  background-size: 100%;
+  width: 23px;
+  height: 23px;
+`;
+
+const SubDiv = styled.div`
+  margin-left: 14px;
+  font-size: 13px;
+  line-height: 2;
+`;
+
+const SubButton = styled.button`
+  width: 71px;
+  height: 25px;
+  background: ${props => props.theme.colors.cyanBlue};
+  border-radius: 8px;
+  color: ${props => props.theme.colors.white};
+  justify-items: center;
+`;
+
+const Hot = styled.div`
+  margin-top: 6px;
+  margin-left: 4px;
+  font-size: 8px;
+  background: ${props => props.theme.colors.magenta};
+  color: ${props => props.theme.colors.white};
+  padding: 2px 6px;
+
+  border-radius: 8px;
+  width: 28px;
+  height: 12px;
+`;
+
+const MoreButton = styled.button`
+  margin-top: 24px;
   width: 340px;
   height: 42px;
-  background-color: ${props => props.theme.colors.cobaltBlue};
+  background-color: ${props => props.theme.colors.lightGray};
   border-radius: 8px;
-  margin-bottom: 13px;
-  margin-left: 14px;
   padding: 11px;
   text-align: center;
   justify-content: center;
 `;
-
-const BoostingTitle = styled.div`
-  font-size: 15px;
-  line-height: 20px;
-  color: ${props => props.theme.colors.white};
-`;
-
-const BoostingPrice = styled.div`
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: -0.02em;
-  font-weight: 600;
-  color: ${props => props.theme.colors.steelBlue};
-  margin-left: 8px;
-  margin-top: 4px;
-`;
-
-const IconBoosting = styled.div`
-  background: url(${icBoosting}) 0 center no-repeat;
-  padding: 9px;
-  width: 9px;
-  height: 9px;
-  margin-left: 2px;
-`;
-
-function Recommendation() {
+interface RecommendationProps {
+  recommendationData: RecommendationData[];
+}
+function Recommendation({ recommendationData }: RecommendationProps) {
   return (
     <Block>
-      <TopImg />
-      <CommentBlock>
-        <CommentTitle>빠르게 관심을 받아보세요</CommentTitle>
-        <CommentSub>
-          평소보다 2배 이상 회원님의 프로필을 등장시켜 <br /> 매력적인 상대를 많이 만날 수 있습니다
-        </CommentSub>
-      </CommentBlock>
-      <BoostingButton>
-        <BoostingTitle>프로필 부스팅</BoostingTitle>
-        <BoostingPrice>150</BoostingPrice>
-        <IconBoosting />
-      </BoostingButton>
+      <TitleDiv>맞춤 추천</TitleDiv>
+      <SubBlock>
+        {recommendationData.map((item: RecommendationData) => (
+          <SubWapper key={item.title}>
+            <SubFlex>
+              <IconToday src={item.img} />
+              <SubDiv>{item.title}</SubDiv>
+              {item.hot ? <Hot>HOT</Hot> : null}
+            </SubFlex>
+            <SubButton>선택</SubButton>
+          </SubWapper>
+        ))}
+      </SubBlock>
+      <MoreButton>30개 항목 모두 보기</MoreButton>
     </Block>
   );
 }
+
 export default Recommendation;
