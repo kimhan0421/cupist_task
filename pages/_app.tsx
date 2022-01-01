@@ -9,8 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Glam</title>
-        <meta name='Glam' content='Glam' />
+        <title>Cupist</title>
       </Head>
       <main>
         <GlobalStyle />
