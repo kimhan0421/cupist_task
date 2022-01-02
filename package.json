@@ -1,16 +1,20 @@
 {
   "name": "glam",
   "private": true,
+  "homepage": "https://github.com/kimhan0421/cupist_task",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint 'components/**/*' 'lib/*' 'pages/**/*' ",
-    "format": "prettier --write components/**/* lib/* pages/* "
+    "format": "prettier --write components/**/* lib/* pages/* ",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
+    "gh-pages": "^3.2.3",
     "mobx": "^6.3.5",
     "mobx-react": "^7.2.1",
     "next": "12.0.7",

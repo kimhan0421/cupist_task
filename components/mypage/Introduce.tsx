@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 import { inject, observer } from 'mobx-react';
 import { useEffect } from 'react';
 
-import ProfileStoreProps from '../../store/Profile';
-
 const IntroduceInput = styled.input`
   width: 100%;
   font-size: 14px;
@@ -13,7 +11,7 @@ const IntroduceInput = styled.input`
 `;
 
 interface IntroduceProps {
-  ProfileStore: ProfileStoreProps;
+  ProfileStore: any;
 }
 
 function Introduce({ ProfileStore }: IntroduceProps) {

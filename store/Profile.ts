@@ -24,28 +24,7 @@ export interface IntroduceProps {
 }
 
 class ProfileStore {
-  introduce: IntroduceProps = {
-    nickName: '',
-    gender: 'male',
-    birthday: '',
-    location: '',
-    introduce: '',
-    height: '',
-    shape: '',
-    job: '',
-    company: '',
-    education: '',
-    school: '',
-    personality: [],
-    religion: '',
-    drinking: '',
-    smoking: '',
-    bloodType: '',
-    race: '',
-    charmPoint: [],
-    interest: [],
-    lifestyle: [],
-  };
+  introduce: IntroduceProps[] = [];
 
   constructor() {
     makeObservable(this, {

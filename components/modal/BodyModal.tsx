@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 import { inject, observer } from 'mobx-react';
 import { useEffect, useState } from 'react';
 
-import ProfileStoreProps from '../../store/Profile';
-
 import ModalLayout from './ModalLayout';
 
 const Title = styled.div`
@@ -43,7 +41,7 @@ const ModifyInput = styled.input`
 
 interface BodyModalProps {
   close: any;
-  ProfileStore: ProfileStoreProps;
+  ProfileStore: any;
 }
 
 function BodyModal({ close, ProfileStore }: BodyModalProps) {

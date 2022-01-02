@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react';
 import { useEffect, useState } from 'react';
 
 import icLock from '../../images/ic-lock.svg';
-import ProfileStoreProps, { IntroduceProps } from '../../store/Profile';
+import { IntroduceProps } from '../../store/Profile';
 
 import Body from './Body';
 import Carrer from './Carrer';
@@ -73,7 +73,7 @@ const BottomBox = styled.span`
 `;
 
 interface BasicInformationProps {
-  ProfileStore: ProfileStoreProps;
+  ProfileStore: any;
 }
 
 function BasicInformation({ ProfileStore }: BasicInformationProps) {

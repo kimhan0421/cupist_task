@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { inject, observer } from 'mobx-react';
 import { useEffect, useState } from 'react';
 
-import ProfileStoreProps from '../../store/Profile';
 import BodyModal from '../modal/BodyModal';
 import Portal from '../modal/Portal';
 import ShapeModal from '../modal/ShapeModal';
@@ -24,7 +23,7 @@ const Explanation = styled.div`
 `;
 
 interface BodyProps {
-  ProfileStore: ProfileStoreProps;
+  ProfileStore: any;
 }
 
 function Body({ ProfileStore }: BodyProps) {
