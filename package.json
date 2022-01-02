@@ -9,7 +9,7 @@
     "lint": "eslint 'components/**/*' 'lib/*' 'pages/**/*' ",
     "format": "prettier --write components/**/* lib/* pages/* ",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "next build && next export && touch out/.nojekyll && git add out/ && git commit -m 'deploy to gh-pages' && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
