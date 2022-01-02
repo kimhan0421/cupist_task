@@ -1,16 +1,22 @@
 {
   "name": "glam",
   "private": true,
+  "homepage": "https://github.com/kimhan0421/cupist_task",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint 'lib/*' 'pages/**/*' ",
-    "format": "prettier --write lib/* pages/* "
+    "lint": "eslint 'components/**/*' 'lib/*' 'pages/**/*' ",
+    "format": "prettier --write components/**/* lib/* pages/* ",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
+    "gh-pages": "^3.2.3",
+    "mobx": "^6.3.5",
+    "mobx-react": "^7.2.1",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -18,6 +24,7 @@
   "devDependencies": {
     "@types/node": "17.0.5",
     "@types/react": "17.0.38",
+    "@types/react-dom": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "eslint": "8.5.0",
     "eslint-config-airbnb-typescript": "^12.3.1",

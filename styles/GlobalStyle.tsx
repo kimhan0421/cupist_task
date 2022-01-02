@@ -1,4 +1,5 @@
 import { css, Global } from '@emotion/react';
+
 import importFonts from '../lib/importFonts';
 
 function GlobalStyles() {
@@ -31,6 +32,11 @@ function GlobalStyles() {
 
         * {
           box-sizing: border-box;
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+          ::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera*/
+          }
         }
       `}
     />
