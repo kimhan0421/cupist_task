@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
 
-import Potal from '../modal/Portal';
+import Portal from '../modal/Portal';
 import ResearchModal from '../modal/RecomModal';
 
 import RecommendationData from './data/RecommendationData';
@@ -77,9 +77,9 @@ function RecommendateionDetail({ item }: RecommendateionDetailProps) {
         <SubButton onClick={onOpenModal}>선택</SubButton>
       </SubWapper>
       {open && (
-        <Potal>
+        <Portal>
           <ResearchModal close={onOpenModal} title={item.title} />
-        </Potal>
+        </Portal>
       )}
     </>
   );
