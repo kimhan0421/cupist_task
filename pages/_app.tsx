@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import {ProfileInstance as profileStore} from '../store/Profile'
+import { ProfileInstance as profileStore } from '../store/Profile';
 import GlobalStyle from '../styles/GlobalStyle';
 import theme from '../styles/theme';
 

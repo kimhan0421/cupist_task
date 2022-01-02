@@ -27,7 +27,8 @@ const SubMessage = styled.div`
   color: ${props => props.theme.colors.darkGray};
 `;
 
-const More = styled.div`
+const More = styled.a`
+  cursor: pointer;
   margin-left: 8px;
   color: ${props => props.theme.colors.dimGray};
 `;
@@ -83,7 +84,15 @@ function Mypage({ ProfileStore }: MyPageProps) {
         <BaseImg onClick={onOpenModal} />
       </ProfileFlex>
       <SubMessage>
-        다양한 매력을 보여줄 수 있는 사진을 올려주세요<More>더 알아보기</More>
+        다양한 매력을 보여줄 수 있는 사진을 올려주세요
+        <More
+          target='_blank'
+          href='https://cupist.notion.site/e90fb7d9144f45368e6849d99d345437'
+          rel='noreferrer'
+          title='회원님의 다양한 매력을 보여주세요'
+        >
+          더 알아보기
+        </More>
       </SubMessage>
       <SectionHr />
       {isShowPhoto()}
