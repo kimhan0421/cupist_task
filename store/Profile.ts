@@ -53,13 +53,24 @@ class ProfileStore {
       getIntroduce: action,
       modifyHeight: action,
       modifyShape: action,
+      modifyIntroduce: action,
     });
   }
 
   getIntroduce = () => {
+    if (localStorage.getItem('user')) {
+      this.introduce = JSON.parse(localStorage.getItem('user'));
+      return this.introduce;
+    }
     this.introduce = require('../data.json').data.information;
+    localStorage.setItem('user', JSON.stringify(this.introduce));
     return this.introduce;
   };
+
+  heightUpdate = (introduce: IntroduceProps[], inputHeight: string) => ({
+    ...introduce,
+    height: inputHeight,
+  });
 
   modifyHeight = (height: any) => {
     let inputHeight = height;
@@ -68,13 +79,34 @@ class ProfileStore {
     } else if (height > 200) {
       inputHeight = '200이상';
     }
-    this.introduce.height = inputHeight;
-    localStorage.setItem('user', JSON.stringify(this.introduce));
+    const localUser = JSON.parse(localStorage.getItem('user'));
+    const updateIntroduce = this.heightUpdate(localUser, inputHeight);
+    this.introduce = updateIntroduce;
+    localStorage.setItem('user', JSON.stringify(updateIntroduce));
   };
 
+  shapeUpdate = (introduce: IntroduceProps[], shape: string) => ({
+    ...introduce,
+    shape,
+  });
+
   modifyShape = (shape: string) => {
-    this.introduce.shape = shape;
-    localStorage.setItem('user', JSON.stringify(this.introduce));
+    const localUser = JSON.parse(localStorage.getItem('user'));
+    const updateIntroduce = this.shapeUpdate(localUser, shape);
+    this.introduce = updateIntroduce;
+    localStorage.setItem('user', JSON.stringify(updateIntroduce));
+  };
+
+  introduceUpdate = (introduce: IntroduceProps[], inputIntroduce: string) => ({
+    ...introduce,
+    introduce: inputIntroduce,
+  });
+
+  modifyIntroduce = (introduce: string) => {
+    const localUser = JSON.parse(localStorage.getItem('user'));
+    const updateIntroduce = this.introduceUpdate(localUser, introduce);
+    this.introduce = updateIntroduce;
+    localStorage.setItem('user', JSON.stringify(updateIntroduce));
   };
 }
 

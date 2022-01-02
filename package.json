@@ -5,8 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint 'lib/*' 'pages/**/*' ",
-    "format": "prettier --write lib/* pages/* "
+    "lint": "eslint 'components/**/*' 'lib/*' 'pages/**/*' ",
+    "format": "prettier --write components/**/* lib/* pages/* "
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",

@@ -1,4 +1,8 @@
 import styled from '@emotion/styled';
+import { inject, observer } from 'mobx-react';
+import { useEffect } from 'react';
+
+import ProfileStoreProps from '../../store/Profile';
 
 const IntroduceInput = styled.input`
   width: 100%;
@@ -9,18 +13,27 @@ const IntroduceInput = styled.input`
 `;
 
 interface IntroduceProps {
-  onInputIntroduce: (e: any) => void;
+  ProfileStore: ProfileStoreProps;
 }
 
-function Introduce({ onInputIntroduce }: IntroduceProps) {
+function Introduce({ ProfileStore }: IntroduceProps) {
+  useEffect(() => {
+    ProfileStore.getIntroduce();
+  }, [ProfileStore]);
+
+  const isModifyValue = (e: any) => {
+    ProfileStore.modifyIntroduce(e.target.value);
+  };
+
   return (
     <IntroduceInput
       id='introduce'
       name='introduce'
       placeholder='회원님의 소개를 간단하게 입력해주세요'
       autoComplete='off'
-      onChange={onInputIntroduce}
+      value={ProfileStore.introduce.introduce}
+      onChange={isModifyValue}
     />
   );
 }
-export default Introduce;
+export default inject('ProfileStore')(observer(Introduce));

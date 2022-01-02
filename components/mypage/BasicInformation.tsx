@@ -1,13 +1,14 @@
 import styled from '@emotion/styled';
 import { inject, observer } from 'mobx-react';
-import { SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import icLock from '../../images/ic-lock.svg';
 import ProfileStoreProps, { IntroduceProps } from '../../store/Profile';
-import Introduce from './Introduce';
+
 import Body from './Body';
-import Character from './Character';
 import Carrer from './Carrer';
+import Character from './Character';
+import Introduce from './Introduce';
 
 const SectionBlock = styled.div`
   display: flex;
@@ -65,57 +66,23 @@ const BottomDiv = styled.div``;
 const BottomBox = styled.span`
   word-break: keep-all;
   margin-right: 8px;
-  border: 2px solid ${props => props.theme.colors.cobaltBlue};
+  border: 2px solid ${props => props.theme.colors.cyanBlue};
   border-radius: 8px;
   padding: 8px 10px;
-  color: ${props => props.theme.colors.cobaltBlue};
+  color: ${props => props.theme.colors.cyanBlue};
 `;
 
 interface BasicInformationProps {
   ProfileStore: ProfileStoreProps;
 }
 
-interface BasicProps {
-  nickName: string;
-  birthday: string;
-}
-
-interface BodyProps {
-  height: string;
-  shape: string;
-}
-
-interface CareerProps {
-  job: string;
-  company: string;
-  education: string;
-  school: string;
-}
-
-interface CharacterProps {
-  personality: string[];
-  religion: string;
-  drinking: string;
-  smoking: string;
-  bloodType: string;
-  race: string;
-}
-
 function BasicInformation({ ProfileStore }: BasicInformationProps) {
   const [information, setInformation] = useState<IntroduceProps>();
-  const [basic, setBasic] = useState<BasicProps>();
-  const [introduce, setIntroduce] = useState('');
-  const [career, setCareer] = useState<CareerProps>();
-  const [character, setCharacter] = useState<CharacterProps>();
 
   useEffect(() => {
     ProfileStore.getIntroduce();
     setInformation(ProfileStore.introduce);
   }, [ProfileStore]);
-
-  const onInputIntroduce = (e: { target: { value: SetStateAction<string> } }) => {
-    setIntroduce(e.target.value);
-  };
 
   if (information === undefined) {
     return null;
@@ -143,11 +110,11 @@ function BasicInformation({ ProfileStore }: BasicInformationProps) {
       <SectionHr />
       <SectionTitleBlock>
         <Title>소개</Title>
-        <Introduce onInputIntroduce={onInputIntroduce} />
+        <Introduce ProfileStore={ProfileStore} />
         <IntroduceDiv>SNS 등 연락처 입력 시 서비스 이용 제한됩니다</IntroduceDiv>
       </SectionTitleBlock>
       <SectionHr />
-      <Body information={information} ProfileStore={ProfileStore} />
+      <Body ProfileStore={ProfileStore} />
       <SectionHr />
       <Carrer information={information} />
       <SectionHr />
@@ -156,21 +123,27 @@ function BasicInformation({ ProfileStore }: BasicInformationProps) {
       <SectionTitleBlock>
         <BottomTitle>매력 포인트</BottomTitle>
         <BottomDiv>
-          {information.charmPoint.map(item => (
-            <BottomBox key={item}>{item}</BottomBox>
-          ))}
+          {information.charmPoint ? (
+            information.charmPoint.map(item => <BottomBox key={item}>{item}</BottomBox>)
+          ) : (
+            <LifeInputDiv>입력해주세요</LifeInputDiv>
+          )}
         </BottomDiv>
       </SectionTitleBlock>
       <SectionTitleBlock>
         <Title>관심사</Title>
         <Explanation>
-          {information.interest ? information.interest : <LifeInputDiv>입력해주세요</LifeInputDiv>}
+          {information.interest ? (
+            information.interest.map(item => <BottomBox key={item}>{item}</BottomBox>)
+          ) : (
+            <LifeInputDiv>입력해주세요</LifeInputDiv>
+          )}
         </Explanation>
       </SectionTitleBlock>
       <SectionTitleBlock>
         <Title>라이프 스타일</Title>
         {information.lifestyle ? (
-          <Explanation>{information.lifestyle}</Explanation>
+          information.lifestyle.map(item => <BottomBox key={item}>{item}</BottomBox>)
         ) : (
           <Explanation>
             <LifeInputDiv>입력해주세요</LifeInputDiv>
