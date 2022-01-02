@@ -25,3 +25,8 @@ yarn dev
 - 닉네임, 성별, 생일 등 회원의 정보 나열
 - 추가) 키, 체형은 변경 가능
 
+## 화면
+
+![Glam](https://github.com/kimhan0421/cupist_task/blob/main/public/images/shot/home.png)
+![프로필 수정](https://github.com/kimhan0421/cupist_task/blob/main/public/images/shot/mypage.png)
+
