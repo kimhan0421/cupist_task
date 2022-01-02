@@ -4,8 +4,11 @@ import type { NextPage } from 'next';
 import Header from '../components/common/Header';
 import NavBar from '../components/common/Navbar';
 import Boosting from '../components/glam/Boosting';
+import Profiles from '../components/glam/Profiles';
 import Recommendation from '../components/glam/Recommendation';
+import TodayProfile from '../components/glam/TodayProfile';
 import { recommendationData } from '../components/glam/data/RecommendationData';
+import RecomProfilesStore from '../store/RecomProfiles';
 
 const NavBarBlock = styled.div`
   position: fixed;
@@ -27,9 +30,11 @@ const Home: NextPage = () => (
   <>
     <Header />
     <ContentsBlock>
+      <TodayProfile RecomProfilesStore={new RecomProfilesStore()} />
       <Boosting />
       <PositionDiv />
       <Recommendation recommendationData={recommendationData} />
+      <Profiles RecomProfilesStore={new RecomProfilesStore()} />
     </ContentsBlock>
     <NavBarBlock>
       <NavBar />

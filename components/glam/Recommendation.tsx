@@ -10,14 +10,13 @@ const Block = styled.div`
 `;
 
 const TitleDiv = styled.div`
-  font-size: 16px;
+  font-size: 20px;
   line-height: 22px;
   font-weight: 600;
 `;
 
 const SubBlock = styled.div`
-  margin-top: 26px;
-  margin-left: 14px;
+  margin: 24px 14px;
 `;
 
 const MoreButton = styled.button`
@@ -39,7 +38,7 @@ function Recommendation({ recommendationData }: RecommendationProps) {
       <TitleDiv>맞춤 추천</TitleDiv>
       <SubBlock>
         {recommendationData.map((item: RecommendationData) => (
-          <RecommendateionDetail item={item} />
+          <RecommendateionDetail item={item} key={item.title} />
         ))}
       </SubBlock>
       <MoreButton>30개 항목 모두 보기</MoreButton>
