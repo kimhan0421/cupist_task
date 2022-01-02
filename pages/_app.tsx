@@ -1,7 +1,9 @@
 import { ThemeProvider } from '@emotion/react';
+import { Provider } from 'mobx-react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
+import { ProfileInstance as profileStore } from '../store/Profile';
 import GlobalStyle from '../styles/GlobalStyle';
 import theme from '../styles/theme';
 
@@ -12,10 +14,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Cupist</title>
       </Head>
       <main>
-        <GlobalStyle />
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <Provider ProfileStore={profileStore}>
+          <GlobalStyle />
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </Provider>
       </main>
     </>
   );

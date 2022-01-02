@@ -8,6 +8,9 @@ const theme = {
     black: '#000000',
     white: '#FFFFFF',
     steelBlue: '#B4C5EE',
+    darkGray: '#7F7F7F',
+    dimGray: '#595959',
+    snow: '#E8E8E8',
   },
 };
 

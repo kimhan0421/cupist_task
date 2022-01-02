@@ -5,12 +5,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint 'lib/*' 'pages/**/*' ",
-    "format": "prettier --write lib/* pages/* "
+    "lint": "eslint 'components/**/*' 'lib/*' 'pages/**/*' ",
+    "format": "prettier --write components/**/* lib/* pages/* "
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
+    "mobx": "^6.3.5",
+    "mobx-react": "^7.2.1",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2"

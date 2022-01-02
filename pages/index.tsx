@@ -17,20 +17,19 @@ const ContentsBlock = styled.div`
   height: calc(100vh - 136px);
   overflow-y: scroll;
   overflow-x: hidden;
-  
 `;
 
 const PositionDiv = styled.div`
-padding-top:8px;`
-  
+  padding-top: 8px;
+`;
 
 const Home: NextPage = () => (
   <>
     <Header />
     <ContentsBlock>
       <Boosting />
-      <PositionDiv/>
-      <Recommendation recommendationData={recommendationData}/>
+      <PositionDiv />
+      <Recommendation recommendationData={recommendationData} />
     </ContentsBlock>
     <NavBarBlock>
       <NavBar />

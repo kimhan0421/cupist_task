@@ -1,0 +1,26 @@
+{
+  "data": {
+    "information": {
+      "nickName": "프로필1",
+      "gender": "female",
+      "birthday": "1999-04-21",
+      "location": "서울특별시 강남구",
+      "introduce": "",
+      "height": "160",
+      "shape": "ordinary",
+      "job": "",
+      "company": "학생",
+      "education": "대학교",
+      "school": "",
+      "personality": ["정직한", "활발한"],
+      "religion": "무교",
+      "drinking": "가끔",
+      "smoking": "안 함",
+      "bloodType": "O형",
+      "race": "",
+      "charmPoint": ["뭐든 잘 먹어요", "긍정적 마인드"],
+      "interest": "",
+      "lifestyle": ""
+    }
+  }
+}

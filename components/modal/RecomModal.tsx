@@ -123,7 +123,6 @@ function ResearchModal({ title, close }: ResearchModalProps): ReactElement {
       <Modal>
         <ModalScroll>
           {title === '글램추천' ? <Title>더 추천해 드릴까요?</Title> : <Title>{title}</Title>}
-
           <SubTitle>최근 접속한 2명을 추천합니다.</SubTitle>
           <RecomButton>
             <RecomTitle>추천받기</RecomTitle>
