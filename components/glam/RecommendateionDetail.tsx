@@ -13,7 +13,7 @@ const SubWapper = styled.div`
   justify-content: space-between;
   padding-top: 32px;
   :first-of-type {
-    padding-top: 26px;
+    padding-top: 20px;
   }
 `;
 
@@ -68,7 +68,7 @@ function RecommendateionDetail({ item }: RecommendateionDetailProps) {
 
   return (
     <>
-      <SubWapper key={item.title}>
+      <SubWapper>
         <SubFlex>
           <IconToday src={item.img} />
           <SubDiv>{item.title}</SubDiv>
